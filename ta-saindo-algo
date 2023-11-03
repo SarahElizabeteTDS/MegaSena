@@ -1,0 +1,151 @@
+<?php
+
+    const NUMEROMAXMEGA = 20; //settadas para a Mega, de qual o valor minimo e maximo que se pode jogar
+    const NUMEROMINMEGA = 6;  
+    const QUANTIDADEDENUMEROSMEGA = 60; //quant de numeros 
+
+    const NUMEROMAXQUINA = 15; //settadas para a Quina, de qual o valor minimo e maximo que se pode jogar
+    const NUMEROMINQUINA = 5;
+    const QUANTIDADEDENUMEROSQUINA = 80; //quant de numeros
+
+    const NUMEROMAXLOTOMANIA = 50; //settadas para a Lotomania, de qual o valor minimo e maximo que se pode jogar
+    const NUMEROMINLOTOMANIA = 50;
+    const QUANTIDADEDENUMEROSLOTOMANIA = 100; //quant de numeros
+
+    const NUMEROMAXLOTOFACIL = 20;//settadas para a lotofacil, de qual o valor minimo e maximo que se pode jogar
+    const NUMEROMINLOTOFACIL = 15;
+    const QUANTIDADEDENUMEROSLOTOFACIL = 25; //quant de numeros
+
+    $numsEscolhidos = 0; //variaveis que estão dentro da funcao
+    $numsSorteados = 0;
+
+    $jogoEscolhido = readline("Escolha o jogo que você gostaria de jogar!\n1-Mega-Sena\n2-Quina\n3-Lotomania\n4-Lotofácil\n");
+
+    function JogoLoteria($numsEscolhidos, $numsSorteados, $jogoEscolhido) {
+        
+        $numerosDezenas = 0;
+        switch ($tipoJogo) 
+        {
+            case '1':
+                $numsEscolhidosQuantidade = count($numsEscolhidos);
+                if ($numsEscolhidosQuantidade < NUMEROMINMEGA || $numsEscolhidosQuantidade > NUMMAXMEGA) 
+                {
+                    return "Número incorreto de dezenas.";
+                }
+                break;
+            case '2':
+                $numsEscolhidosQuantidade = count($numsEscolhidos);
+                if ($numsEscolhidosQuantidade < NUMEROMINMEGA || $numsEscolhidosQuantidade > NUMMAXMEGA) 
+                {
+                    return "Número incorreto de dezenas.";
+                }
+                break;
+            case '3':
+                $numsEscolhidosQuantidade = count($numsEscolhidos);
+                if ($numsEscolhidosQuantidade < NUMEROMINMEGA || $numsEscolhidosQuantidade > NUMMAXMEGA) 
+                {
+                    return "Número incorreto de dezenas.";
+                }
+                break;
+            case '4':
+                $numsEscolhidosQuantidade = count($numsEscolhidos);
+                if ($numsEscolhidosQuantidade < NUMEROMINMEGA || $numsEscolhidosQuantidade > NUMMAXMEGA) 
+                {
+                    return "Número incorreto de dezenas.";
+                }
+                break;
+            default:
+                return "Jogo não existe.";
+        }
+        
+        //Deixa os numeros bonitinhos
+        sort($numsEscolhidos);
+        sort($numsSorteados);
+        
+        //Compara 
+        $numsIguais = array_intersect($numsEscolhidos, $numsSorteados);
+        
+        //Verifica quantos números iguais
+        $numsIguaisCount = count($numsIguais);
+        
+        //Prêmio!
+        $premio = 'Nenhum prêmio';
+        switch ($tipoJogo) 
+        {
+            case '1':
+                if ($numsIguaisCount == 4) 
+                {
+                    $premio = 'Quadra';
+                } 
+                elseif ($numsIguaisCount == 5) 
+                {
+                    $premio = 'Quina';
+                } 
+                elseif ($numsIguaisCount == 6) 
+                {
+                    $premio = 'Sena';
+                }
+                break;
+            case '2':
+                if ($numsIguaisCount == 5) 
+                {
+                    $premio = 'Quina';
+                }
+                break;
+            case '3':
+                
+                if ($numsIguaisCount == 0) 
+                {
+                    $premio = 'Nenhum acerto';
+                } 
+                elseif ($numsIguaisCount == 15) 
+                {
+                    $premio = '15 acertos';
+                } 
+                elseif ($numsIguaisCount == 16) 
+                {
+                    $premio = '16 acertos';
+                } 
+                elseif ($numsIguaisCount == 17) 
+                {
+                    $premio = '17 acertos';
+                } 
+                elseif ($numsIguaisCount == 18) 
+                {
+                    $premio = '18 acertos';
+                } 
+                elseif ($numsIguaisCount == 19) 
+                {
+                    $premio = '19 acertos';
+                } 
+                elseif ($numsIguaisCount == 20) 
+                {
+                    $premio = '20 acertos';
+                }
+                break;
+
+            case '4':
+                if ($numsIguaisCount == 11) 
+                {
+                    $premio = '11 acertos';
+                } 
+                elseif ($numsIguaisCount == 12) 
+                {
+                    $premio = '12 acertos';
+                } 
+                elseif ($numsIguaisCount == 13) 
+                {
+                    $premio = '13 acertos';
+                } 
+                elseif ($numsIguaisCount == 14) 
+                {
+                    $premio = '14 acertos';
+                } 
+                elseif ($numsIguaisCount == 15) 
+                {
+                    $premio = '15 acertos';
+                }
+                break;
+        }
+    }
+    
