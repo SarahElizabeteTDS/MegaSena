@@ -20,6 +20,38 @@
     $numsSorteados = 0;
 
     $jogoEscolhido = readline("Escolha o jogo que você gostaria de jogar!\n1-Mega-Sena\n2-Quina\n3-Lotomania\n4-Lotofácil\n");
+    if ($jogoEscolhido == 1) 
+    {
+        $entradaUsuario = readline("Informe os números escolhidos(separados por vírgula): ");
+        $numsEscolhidos = explode(",", $entradaUsuario); 
+        $numsSorteados = sortearNumeros(1, 60, 6);
+        JogoLoteria($numsEscolhidos, $numsSorteados, 1);
+        print($premio);
+    }   
+    else if ($jogoEscolhido == 2) 
+    {
+        $entradaUsuario = readline("Informe os números escolhidos(separados por vírgula): ");
+        $numsEscolhidos = explode(",", $entradaUsuario); 
+        $numsSorteados = sortearNumeros(5, 15, 5);
+        JogoLoteria($numsEscolhidos, $numsSorteados, 2);
+        print($premio);
+    }   
+    else if ($jogoEscolhido == 3) 
+    {
+        $entradaUsuario = readline("Informe os números escolhidos(separados por vírgula): ");
+        $numsEscolhidos = explode(",", $entradaUsuario); 
+        $numsSorteados = sortearNumeros(1, 100, 50);
+        JogoLoteria($numsEscolhidos, $numsSorteados, 3);
+        print($premio);
+    }   
+    else if ($jogoEscolhido == 4) 
+    {
+        $entradaUsuario = readline("Informe os números escolhidos(separados por vírgula): ");
+        $numsEscolhidos = explode(",", $entradaUsuario); 
+        $numsSorteados = sortearNumeros(1, 25, 15);
+        JogoLoteria($numsEscolhidos, $numsSorteados, 3);
+        print($premio);
+    }   
 
     function JogoLoteria($numsEscolhidos, $numsSorteados, $jogoEscolhido) {
         
