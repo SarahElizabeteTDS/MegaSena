@@ -180,4 +180,19 @@
                 break;
         }
     }
+
+    function sortearNumeros($minimo, $maximo, $quantidade) {
+        $numsSorteados = [];
+        
+        while (count($numsSorteados) < $quantidade) {
+            $numAleatorio = rand($minimo, $maximo);
+            
+            //pra nao duplicar <3, penei nisso, viu? ass:Sarah
+            if (!in_array($numAleatorio, $numsSorteados)) {
+                $numsSorteados[] = $numAleatorio;
+            }
+        }
+        
+        return $numsSorteados;
+    }
     
