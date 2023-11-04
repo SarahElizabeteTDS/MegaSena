@@ -60,28 +60,28 @@
         {
             case '1':
                 $numsEscolhidosQuantidade = count($numsEscolhidos);
-                if ($numsEscolhidosQuantidade < NUMEROMINMEGA || $numsEscolhidosQuantidade > NUMMAXMEGA) 
+                if ($numsEscolhidosQuantidade < 6 || $numsEscolhidosQuantidade > 20) 
                 {
                     return "Número incorreto de dezenas.";
                 }
                 break;
             case '2':
                 $numsEscolhidosQuantidade = count($numsEscolhidos);
-                if ($numsEscolhidosQuantidade < NUMEROMINMEGA || $numsEscolhidosQuantidade > NUMMAXMEGA) 
+                if ($numsEscolhidosQuantidade < 5 || $numsEscolhidosQuantidade > 15) 
                 {
                     return "Número incorreto de dezenas.";
                 }
                 break;
             case '3':
                 $numsEscolhidosQuantidade = count($numsEscolhidos);
-                if ($numsEscolhidosQuantidade < NUMEROMINMEGA || $numsEscolhidosQuantidade > NUMMAXMEGA) 
+                if ($numsEscolhidosQuantidade != 50) 
                 {
                     return "Número incorreto de dezenas.";
                 }
                 break;
             case '4':
                 $numsEscolhidosQuantidade = count($numsEscolhidos);
-                if ($numsEscolhidosQuantidade < NUMEROMINMEGA || $numsEscolhidosQuantidade > NUMMAXMEGA) 
+                if ($numsEscolhidosQuantidade < 15 || $numsEscolhidosQuantidade > 20) 
                 {
                     return "Número incorreto de dezenas.";
                 }
