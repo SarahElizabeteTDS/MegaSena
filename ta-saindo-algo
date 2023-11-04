@@ -34,6 +34,8 @@
                 $numsEscolhidos = explode(",", $entradaUsuarioEscolha); 
                 $numsSorteados = sortearNumeros(1, 60, 6);
                 JogoLoteria($numsEscolhidos, $numsSorteados, 1);
+                sort($numsEscolhidos);
+                print "Os números escolhidos são: $numsEscolhidos\n";
                 print "Seu prêmio é: $premio" 
             }
             else if ($opcaoDeAposta == 2)
@@ -42,6 +44,7 @@
                 $numsEscolhidos = sortearNumeros(1, 60, $quantidadeNumeros);
                 $numsSorteados = sortearNumeros(1, 60, 6);
                 JogoLoteria($numsEscolhidos, $numsSorteados, 1);
+                sort($numsEscolhidos);
                 print "Os números sorteados pelo programa são: $numsEscolhidos\n";
                 print "Seu prêmio é: $premio"
 
@@ -64,6 +67,8 @@
                 $numsEscolhidos = explode(",", $entradaUsuarioEscolha); 
                 $numsSorteados = sortearNumeros(1, 80, 5);
                 JogoLoteria($numsEscolhidos, $numsSorteados, 2);
+                sort($numsEscolhidos);
+                print "Os números escolhidos são: $numsEscolhidos\n";
                 print "Seu prêmio é: $premio" 
             }
             else if ($opcaoDeAposta == 2)
@@ -72,6 +77,7 @@
                 $numsEscolhidos = sortearNumeros(1, 80, $quantidadeNumeros);
                 $numsSorteados = sortearNumeros(1, 80, 5);
                 JogoLoteria($numsEscolhidos, $numsSorteados, 2);
+                sort($numsEscolhidos);
                 print "Os números sorteados pelo programa são: $numsEscolhidos\n";
                 print "Seu prêmio é: $premio"
 
@@ -94,6 +100,8 @@
                 $numsEscolhidos = explode(",", $entradaUsuarioEscolha); 
                 $numsSorteados = sortearNumeros(1, 100, 20);
                 JogoLoteria($numsEscolhidos, $numsSorteados, 3);
+                sort($numsEscolhidos);
+                print "Os números escolhidos são: $numsEscolhidos\n";
                 print "Seu prêmio é: $premio" 
             }
             else if ($opcaoDeAposta == 2)
@@ -101,6 +109,7 @@
                 $numsEscolhidos = sortearNumeros(1, 100, 50);
                 $numsSorteados = sortearNumeros(1, 100, 20);
                 JogoLoteria($numsEscolhidos, $numsSorteados, 3);
+                sort($numsEscolhidos);
                 print "Os números sorteados pelo programa são: $numsEscolhidos\n";
                 print "Seu prêmio é: $premio"
 
@@ -123,6 +132,8 @@
                 $numsEscolhidos = explode(",", $entradaUsuarioEscolha); 
                 $numsSorteados = sortearNumeros(1, 25, 15);
                 JogoLoteria($numsEscolhidos, $numsSorteados, 4);
+                sort($numsEscolhidos);
+                print "Os números escolhidos são: $numsEscolhidos\n";
                 print "Seu prêmio é: $premio" 
             }
             else if ($opcaoDeAposta == 2)
@@ -131,6 +142,7 @@
                 $numsEscolhidos = sortearNumeros(1, 25, $quantidadeNumeros);
                 $numsSorteados = sortearNumeros(1, 25, 15);
                 JogoLoteria($numsEscolhidos, $numsSorteados, 4);
+                sort($numsSorteados);
                 print "Os números sorteados pelo programa são: $numsEscolhidos\n";
                 print "Seu prêmio é: $premio"
 
@@ -142,7 +154,8 @@
         } 
     }   
 
-    function JogoLoteria($numsEscolhidos, $numsSorteados, $jogoEscolhido) {
+    function JogoLoteria($numsEscolhidos, $numsSorteados, $jogoEscolhido) 
+    {
         
         $numerosDezenas = 0;
         switch ($jogoEscolhido) 
