@@ -1,0 +1,314 @@
+<?php
+
+    const NUMEROMAXMEGA = 20; //settadas para a Mega, de qual o valor minimo e maximo que se pode jogar
+    const NUMEROMINMEGA = 6;  
+    const QUANTIDADEDENUMEROSMEGA = 60; //quant de numeros 
+
+    const NUMEROMAXQUINA = 15; //settadas para a Quina, de qual o valor minimo e maximo que se pode jogar
+    const NUMEROMINQUINA = 5;
+    const QUANTIDADEDENUMEROSQUINA = 80; //quant de numeros
+
+    const NUMEROMAXLOTOMANIA = 50; //settadas para a Lotomania, de qual o valor minimo e maximo que se pode jogar
+    const NUMEROMINLOTOMANIA = 50;
+    const QUANTIDADEDENUMEROSLOTOMANIA = 100; //quant de numeros
+
+    const NUMEROMAXLOTOFACIL = 20;//settadas para a lotofacil, de qual o valor minimo e maximo que se pode jogar
+    const NUMEROMINLOTOFACIL = 15;
+    const QUANTIDADEDENUMEROSLOTOFACIL = 25; //quant de numeros
+
+    $numsApostas = 0;
+    $numsEscolhidos = 0; //variaveis que estão dentro da funcao
+    $numsSorteados = 0;
+    $premio = 'Nenhum prêmio';
+
+    $jogoEscolhido = readline("Escolha o jogo que você gostaria de jogar!\n1-Mega-Sena\n2-Quina\n3-Lotomania\n4-Lotofácil\n");
+    if ($jogoEscolhido == 1) 
+    {
+        $numsApostas = readline("Quantas apostas você deseja fazer?");
+        for ($i = $numsApostas; $i == 0; $i--) 
+        { 
+            $opcaoDeAposta = readline("Você deseja informar os números, ou que o programa os gere para você?\n1-Quero informar eu mesmo\n2-Surpresinha!\n");
+            if ($opcaoDeAposta == 1) 
+            {
+                $entradaUsuarioEscolha = readline("Informe os números escolhidos(separados por vírgula): ");
+                $numsEscolhidos = explode(",", $entradaUsuarioEscolha); 
+                $numsSorteados = sortearNumeros(1, 60, 6);
+                JogoLoteria($numsEscolhidos, $numsSorteados, 1);
+                sort($numsEscolhidos);
+                print "Os números escolhidos são: $numsEscolhidos\n";
+                print "Seu prêmio é: $premio" 
+            }
+            else if ($opcaoDeAposta == 2)
+            {
+                $quantidadeNumeros = readline("Quantos numeros você deseja apostar?\n");
+                $numsEscolhidos = sortearNumeros(1, 60, $quantidadeNumeros);
+                $numsSorteados = sortearNumeros(1, 60, 6);
+                JogoLoteria($numsEscolhidos, $numsSorteados, 1);
+                sort($numsEscolhidos);
+                print "Os números sorteados pelo programa são: $numsEscolhidos\n";
+                print "Seu prêmio é: $premio"
+
+            }
+            else if ($opcaoDeAposta != 1 && $opcaoDeAposta != 2) 
+            {
+                print"Opcao invalida.";
+                while ($opcaoDeAposta != 1 && $opcaoDeAposta != 2) 
+                {
+                    $opcaoDeAposta = readline("Você deseja informar os números, ou que o programa os gere para você?\n1-Quero informar eu mesmo\n2-Surpresinha!\n");
+                }
+            }
+        } 
+    }   
+    else if ($jogoEscolhido == 2) 
+    {
+        $numsApostas = readline("Quantas apostas você deseja fazer?\n");
+        for ($i = $numsApostas; $i == 0; $i--) 
+        { 
+            $opcaoDeAposta = readline("Você deseja informar os números, ou que o programa os gere para você?\n1-Quero informar eu mesmo\n2-Surpresinha!\n");
+            if ($opcaoDeAposta == 1) 
+            {
+                $entradaUsuarioEscolha = readline("Informe os números escolhidos(separados por vírgula): ");
+                $numsEscolhidos = explode(",", $entradaUsuarioEscolha); 
+                $numsSorteados = sortearNumeros(1, 80, 5);
+                JogoLoteria($numsEscolhidos, $numsSorteados, 2);
+                sort($numsEscolhidos);
+                print "Os números escolhidos são: $numsEscolhidos\n";
+                print "Seu prêmio é: $premio" 
+            }
+            else if ($opcaoDeAposta == 2)
+            {
+                $quantidadeNumeros = readline("Quantos numeros você deseja apostar?\n");
+                $numsEscolhidos = sortearNumeros(1, 80, $quantidadeNumeros);
+                $numsSorteados = sortearNumeros(1, 80, 5);
+                JogoLoteria($numsEscolhidos, $numsSorteados, 2);
+                sort($numsEscolhidos);
+                print "Os números sorteados pelo programa são: $numsEscolhidos\n";
+                print "Seu prêmio é: $premio"
+
+            }
+            else if ($opcaoDeAposta != 1 && $opcaoDeAposta != 2) 
+            {
+                print"Opcao invalida.";
+                while ($opcaoDeAposta != 1 && $opcaoDeAposta != 2) 
+                {
+                    $opcaoDeAposta = readline("Você deseja informar os números, ou que o programa os gere para você?\n1-Quero informar eu mesmo\n2-Surpresinha!\n");
+                }
+            }
+        } 
+    }   
+    else if ($jogoEscolhido == 3) 
+    {
+            $opcaoDeAposta = readline("Você deseja informar os números, ou que o programa os gere para você?\n1-Quero informar eu mesmo\n2-Surpresinha!\n");
+            if ($opcaoDeAposta == 1)
+            {
+                $entradaUsuarioEscolha = readline("Informe os números escolhidos(separados por vírgula): ");
+                $numsEscolhidos = explode(",", $entradaUsuarioEscolha); 
+                $numsSorteados = sortearNumeros(1, 100, 20);
+                JogoLoteria($numsEscolhidos, $numsSorteados, 3);
+                sort($numsEscolhidos);
+                print "Os números escolhidos são: $numsEscolhidos\n";
+                print "Seu prêmio é: $premio" 
+            }
+            else if ($opcaoDeAposta == 2)
+            {
+                $numsEscolhidos = sortearNumeros(1, 100, 50);
+                $numsSorteados = sortearNumeros(1, 100, 20);
+                JogoLoteria($numsEscolhidos, $numsSorteados, 3);
+                sort($numsEscolhidos);
+                print "Os números sorteados pelo programa são: $numsEscolhidos\n";
+                print "Seu prêmio é: $premio"
+
+            }
+            else if ($opcaoDeAposta != 1 && $opcaoDeAposta != 2) 
+            {
+                print"Opcao invalida.";
+                while ($opcaoDeAposta != 1 && $opcaoDeAposta != 2) 
+                {
+                    $opcaoDeAposta = readline("Você deseja informar os números, ou que o programa os gere para você?\n1-Quero informar eu mesmo\n2-Surpresinha!\n");
+                }
+            }
+    }   
+    else if ($jogoEscolhido == 4) 
+    {
+        $numsApostas = readline("Quantas apostas você deseja fazer?\n");
+        for ($i = $numsApostas; $i == 0; $i--) 
+        { 
+            $opcaoDeAposta = readline("Você deseja informar os números, ou que o programa os gere para você?\n1-Quero informar eu mesmo\n2-Surpresinha!\n");
+            if ($opcaoDeAposta == 1) 
+            {
+                $entradaUsuarioEscolha = readline("Informe os números escolhidos(separados por vírgula): ");
+                $numsEscolhidos = explode(",", $entradaUsuarioEscolha); 
+                $numsSorteados = sortearNumeros(1, 25, 15);
+                JogoLoteria($numsEscolhidos, $numsSorteados, 4);
+                sort($numsEscolhidos);
+                print "Os números escolhidos são: $numsEscolhidos\n";
+                print "Seu prêmio é: $premio" 
+            }
+            else if ($opcaoDeAposta == 2)
+            {
+                $quantidadeNumeros = readline("Quantos numeros você deseja apostar?\n");
+                $numsEscolhidos = sortearNumeros(1, 25, $quantidadeNumeros);
+                $numsSorteados = sortearNumeros(1, 25, 15);
+                JogoLoteria($numsEscolhidos, $numsSorteados, 4);
+                sort($numsSorteados);
+                print "Os números sorteados pelo programa são: $numsEscolhidos\n";
+                print "Seu prêmio é: $premio"
+
+            }
+            else if ($opcaoDeAposta != 1 && $opcaoDeAposta != 2) 
+            {
+                print"Opcao invalida.";
+                while ($opcaoDeAposta != 1 && $opcaoDeAposta != 2) 
+                {
+                    $opcaoDeAposta = readline("Você deseja informar os números, ou que o programa os gere para você?\n1-Quero informar eu mesmo\n2-Surpresinha!\n");
+                }
+            }
+        } 
+    }   
+
+    function JogoLoteria($numsEscolhidos, $numsSorteados, $jogoEscolhido) 
+    {
+        
+        $numerosDezenas = 0;
+        switch ($jogoEscolhido) 
+        {
+            case '1':
+                $numsEscolhidosQuantidade = count($numsEscolhidos);
+                if ($numsEscolhidosQuantidade < 6 || $numsEscolhidosQuantidade > 20) 
+                {
+                    return "Número incorreto de dezenas.";
+                }
+                break;
+            case '2':
+                $numsEscolhidosQuantidade = count($numsEscolhidos);
+                if ($numsEscolhidosQuantidade < 5 || $numsEscolhidosQuantidade > 15) 
+                {
+                    return "Número incorreto de dezenas.";
+                }
+                break;
+            case '3':
+                $numsEscolhidosQuantidade = count($numsEscolhidos);
+                if ($numsEscolhidosQuantidade != 50) 
+                {
+                    return "Número incorreto de dezenas.";
+                }
+                break;
+            case '4':
+                $numsEscolhidosQuantidade = count($numsEscolhidos);
+                if ($numsEscolhidosQuantidade < 15 || $numsEscolhidosQuantidade > 20) 
+                {
+                    return "Número incorreto de dezenas.";
+                }
+                break;
+            default:
+                return "Jogo não existe.";
+        }
+        
+        //Deixa os numeros bonitinhos
+        sort($numsEscolhidos);
+        sort($numsSorteados);
+        
+        //Compara 
+        $numsIguais = array_intersect($numsEscolhidos, $numsSorteados);
+        
+        //Verifica quantos números iguais
+        $numsIguaisCount = count($numsIguais);
+        
+        //Prêmio!
+        switch ($jogoEscolhido) 
+        {
+            case '1':
+                if ($numsIguaisCount == 4) 
+                {
+                    $premio = 'Quadra';
+                } 
+                elseif ($numsIguaisCount == 5) 
+                {
+                    $premio = 'Quina';
+                } 
+                elseif ($numsIguaisCount == 6) 
+                {
+                    $premio = 'Sena';
+                }
+                break;
+            case '2':
+                if ($numsIguaisCount == 5) 
+                {
+                    $premio = 'Quina';
+                }
+                break;
+            case '3':
+                
+                if ($numsIguaisCount == 0) 
+                {
+                    $premio = 'Nenhum acerto';
+                } 
+                elseif ($numsIguaisCount == 15) 
+                {
+                    $premio = '15 acertos';
+                } 
+                elseif ($numsIguaisCount == 16) 
+                {
+                    $premio = '16 acertos';
+                } 
+                elseif ($numsIguaisCount == 17) 
+                {
+                    $premio = '17 acertos';
+                } 
+                elseif ($numsIguaisCount == 18) 
+                {
+                    $premio = '18 acertos';
+                } 
+                elseif ($numsIguaisCount == 19) 
+                {
+                    $premio = '19 acertos';
+                } 
+                elseif ($numsIguaisCount == 20) 
+                {
+                    $premio = '20 acertos';
+                }
+                break;
+
+            case '4':
+                if ($numsIguaisCount == 11) 
+                {
+                    $premio = '11 acertos';
+                } 
+                elseif ($numsIguaisCount == 12) 
+                {
+                    $premio = '12 acertos';
+                } 
+                elseif ($numsIguaisCount == 13) 
+                {
+                    $premio = '13 acertos';
+                } 
+                elseif ($numsIguaisCount == 14) 
+                {
+                    $premio = '14 acertos';
+                } 
+                elseif ($numsIguaisCount == 15) 
+                {
+                    $premio = '15 acertos';
+                }
+                break;
+        }
+    }
+
+    function sortearNumeros($minimo, $maximo, $quantidade) 
+    {
+        $numsSorteados = [];
+        
+        while (count($numsSorteados) < $quantidade) 
+        {
+            $numAleatorio = rand($minimo, $maximo);
+            
+            //pra nao duplicar <3, penei nisso, viu? ass:Sarah
+            if (!in_array($numAleatorio, $numsSorteados)) 
+            {
+                $numsSorteados[] = $numAleatorio;
+            }
+        }
+        
+        return $numsSorteados;
+    }
+    
