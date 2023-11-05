@@ -19,7 +19,7 @@
     $numsApostas = 0;
     $numsEscolhidos = 0; //variaveis que estão dentro da funcao
     $numsSorteados = 0;
-    $premio =  ;
+    $premio = "nenhum";
 
     $jogoEscolhido = readline("Escolha o jogo que você gostaria de jogar!\n1-Mega-Sena\n2-Quina\n3-Lotomania\n4-Lotofácil\n");
     if ($jogoEscolhido == 1) 
