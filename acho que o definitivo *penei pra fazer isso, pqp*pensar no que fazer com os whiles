@@ -33,21 +33,20 @@
                 $entradaUsuarioEscolha = readline("Informe os números escolhidos(separados por vírgula): \n");
                 $numsEscolhidos = explode(",", $entradaUsuarioEscolha);
                 $numsEscolhidosQuantidade = count($numsEscolhidos);
-                if ($numsEscolhidosQuantidade < 6  || $numsEscolhidosQuantidade > 20) 
+                while ($numsEscolhidosQuantidade < 6  || $numsEscolhidosQuantidade > 20 ) 
                 {
                     print "Número incorreto de dezenas! Informe novamente, você deve escolher entre 6 e 20 no jogo da Mega!\n";
-                    while ($numsEscolhidosQuantidade < 6  || $numsEscolhidosQuantidade > 20 ) 
-                    {
-                        $entradaUsuarioEscolha = readline("Informe os números escolhidos(separados por vírgula): \n");
-                    }
+                    $entradaUsuarioEscolha = readline("Informe os números escolhidos(separados por vírgula): \n");
+                    $numsEscolhidos = explode(",", $entradaUsuarioEscolha);
+                    $numsEscolhidosQuantidade = count($numsEscolhidos);
                 }
-                    $numsSorteados = sortearNumeros(1, 60, 6);
-                    JogoLoteria($numsEscolhidos, $numsSorteados, 1);
-                    sort($numsEscolhidos);
-                    print "Os números escolhidos são: $numsEscolhidos\n";
-                    print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
-                    $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 1);
-                    print "Seu prêmio é: " . $premio . "\n";
+                $numsSorteados = sortearNumeros(1, 60, 6);
+                JogoLoteria($numsEscolhidos, $numsSorteados, 1);
+                sort($numsEscolhidos);
+                print "Os números escolhidos são: ". implode(", ", $numsEscolhidos) . "\n";
+                print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
+                $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 1);
+                print "Seu prêmio é: " . $premio . "\n";
             }
             else if ($opcaoDeAposta == 2)
             {
@@ -60,14 +59,14 @@
                         $quantidadeNumeros = readline("Quantos numeros você deseja apostar?\n");
                     }
                 }
-                    $numsEscolhidos = sortearNumeros(1, 60, $quantidadeNumeros);
-                    $numsSorteados = sortearNumeros(1, 60, 6);
-                    JogoLoteria($numsEscolhidos, $numsSorteados, 1);
-                    sort($numsEscolhidos);
-                    print "Os números escolhidos são: " . implode(", ", $numsEscolhidos) . "\n";
-                    print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
-                    $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 1);
-                    print "Seu prêmio é: " . $premio . "\n";
+                $numsEscolhidos = sortearNumeros(1, 60, $quantidadeNumeros);
+                $numsSorteados = sortearNumeros(1, 60, 6);
+                JogoLoteria($numsEscolhidos, $numsSorteados, 1);
+                sort($numsEscolhidos);
+                print "Os números escolhidos são: " . implode(", ", $numsEscolhidos) . "\n";
+                print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
+                $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 1);
+                print "Seu prêmio é: " . $premio . "\n";
             }
             else if ($opcaoDeAposta != 1 && $opcaoDeAposta != 2) 
             {
@@ -92,20 +91,21 @@
                 $numsEscolhidosQuantidade = count($numsEscolhidos);
                 if ($numsEscolhidosQuantidade < 5  || $numsEscolhidosQuantidade > 15) 
                 {
-                    print "Número incorreto de dezenas! Informe novamente, você deve escolher entre 5 e 15 no jogo da Quina!\n";
                     while ($numsEscolhidosQuantidade < 5  || $numsEscolhidosQuantidade > 15 ) 
                     {
+                        print "Número incorreto de dezenas! Informe novamente, você deve escolher entre 5 e 15 no jogo da Quina!\n";
                         $entradaUsuarioEscolha = readline("Informe os números escolhidos(separados por vírgula): \n");
-        
+                        $numsEscolhidos = explode(",", $entradaUsuarioEscolha);
+                        $numsEscolhidosQuantidade = count($numsEscolhidos);
                     }
                 }
-                    $numsSorteados = sortearNumeros(1, 80, 5);
-                    JogoLoteria($numsEscolhidos, $numsSorteados, 2);
-                    sort($numsEscolhidos);
-                    print "Os números escolhidos são: $numsEscolhidos\n";
-                    print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
-                    $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 2);
-                    print "Seu prêmio é: " . $premio . "\n";
+                $numsSorteados = sortearNumeros(1, 80, 5);
+                JogoLoteria($numsEscolhidos, $numsSorteados, 2);
+                sort($numsEscolhidos);
+                print "Os números escolhidos são: $numsEscolhidos\n";
+                print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
+                $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 2);
+                print "Seu prêmio é: " . $premio . "\n";
                 
             }
             else if ($opcaoDeAposta == 2)
@@ -113,20 +113,20 @@
                 $quantidadeNumeros = readline("Quantos numeros você deseja apostar?\n");
                 if ($quantidadeNumeros < 5 || $quantidadeNumeros > 15) 
                 {
-                    print "Número incorreto de dezenas! Informe novamente, você deve escolher entre 5 e 15 no jogo da Quina!\n";
                     while ($quantidadeNumeros < 5  || $quantidadeNumeros > 15) 
                     {
                         $quantidadeNumeros = readline("Quantos numeros você deseja apostar?\n");
+                        print "Número incorreto de dezenas! Informe novamente, você deve escolher entre 5 e 15 no jogo da Quina!\n";
                     }
                 }
-                    $numsEscolhidos = sortearNumeros(1, 80, $quantidadeNumeros);
-                    $numsSorteados = sortearNumeros(1, 80, 5);
-                    JogoLoteria($numsEscolhidos, $numsSorteados, 2);
-                    sort($numsEscolhidos);
-                    print "Os números escolhidos são: " . implode(", ", $numsEscolhidos) . "\n";
-                    print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
-                    $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 2);
-                    print "Seu prêmio é: " . $premio . "\n";
+                $numsEscolhidos = sortearNumeros(1, 80, $quantidadeNumeros);
+                $numsSorteados = sortearNumeros(1, 80, 5);
+                JogoLoteria($numsEscolhidos, $numsSorteados, 2);
+                sort($numsEscolhidos);
+                print "Os números escolhidos são: " . implode(", ", $numsEscolhidos) . "\n";
+                print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
+                $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 2);
+                print "Seu prêmio é: " . $premio . "\n";
             }
             else if ($opcaoDeAposta != 1 && $opcaoDeAposta != 2) 
             {
@@ -151,19 +151,21 @@
                 $numsEscolhidosQuantidade = count($numsEscolhidos);
                 if ($numsEscolhidosQuantidade != 50) 
                 {
-                    print "Número incorreto de dezenas! Informe novamente, você deve escolher 50 números na Lotomania\n";
                     while ($numsEscolhidosQuantidade != 50) 
                     {
+                        print "Número incorreto de dezenas! Informe novamente, você deve escolher 50 números na Lotomania\n";
                         $entradaUsuarioEscolha = readline("Informe os números escolhidos(separados por vírgula): \n");
+                        $numsEscolhidos = explode(",", $entradaUsuarioEscolha);
+                        $numsEscolhidosQuantidade = count($numsEscolhidos);
                     }
                 }
-                    $numsSorteados = sortearNumeros(1, 100, 20);
-                    JogoLoteria($numsEscolhidos, $numsSorteados, 3);
-                    sort($numsEscolhidos);
-                    print "Os números escolhidos são: $numsEscolhidos\n";
-                    print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
-                    $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 3);
-                    print "Seu prêmio é: " . $premio . "\n";
+                $numsSorteados = sortearNumeros(1, 100, 20);
+                JogoLoteria($numsEscolhidos, $numsSorteados, 3);
+                sort($numsEscolhidos);
+                print "Os números escolhidos são: $numsEscolhidos\n";
+                print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
+                $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 3);
+                print "Seu prêmio é: " . $premio . "\n";
             }
             else if ($opcaoDeAposta == 2)
             {
@@ -199,39 +201,41 @@
                 $numsEscolhidosQuantidade = count($numsEscolhidos);
                 if ($numsEscolhidosQuantidade < 15  || $numsEscolhidosQuantidade > 20) 
                 {
-                    print "Número incorreto de dezenas! Informe novamente, você deve escolher entre 15 e 20 no jogo da Lotofácil!\n";
                     while ($numsEscolhidosQuantidade < 15  || $numsEscolhidosQuantidade > 20 ) 
                     {
+                        print "Número incorreto de dezenas! Informe novamente, você deve escolher entre 15 e 20 no jogo da Lotofácil!\n";
                         $entradaUsuarioEscolha = readline("Informe os números escolhidos(separados por vírgula): \n");
+                        $numsEscolhidos = explode(",", $entradaUsuarioEscolha);
+                        $numsEscolhidosQuantidade = count($numsEscolhidos);
                     }
                 }
-                    $numsSorteados = sortearNumeros(1, 25, 15);
-                    JogoLoteria($numsEscolhidos, $numsSorteados, 4);
-                    sort($numsEscolhidos);
-                    print "Os números escolhidos são: $numsEscolhidos\n";
-                    print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
-                    $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 4);
-                    print "Seu prêmio é: " . $premio . "\n";
+                $numsSorteados = sortearNumeros(1, 25, 15);
+                JogoLoteria($numsEscolhidos, $numsSorteados, 4);
+                sort($numsEscolhidos);
+                print "Os números escolhidos são: $numsEscolhidos\n";
+                print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
+                $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 4);
+                print "Seu prêmio é: " . $premio . "\n";
             }
             else if ($opcaoDeAposta == 2)
             {
                 $quantidadeNumeros = readline("Quantos numeros você deseja apostar?\n");
                 if ($quantidadeNumeros < 15 || $quantidadeNumeros > 20) 
                 {
-                    print "Número incorreto de dezenas! Informe novamente, você deve escolher entre 15 e 20 no jogo da Lotofácil!\n";
                     while ($quantidadeNumeros < 15  || $quantidadeNumeros > 20) 
                     {
+                        print "Número incorreto de dezenas! Informe novamente, você deve escolher entre 15 e 20 no jogo da Lotofácil!\n";
                         $quantidadeNumeros = readline("Quantos numeros você deseja apostar?\n");
                     }
                 }
-                    $numsEscolhidos = sortearNumeros(1, 25, $quantidadeNumeros);
-                    $numsSorteados = sortearNumeros(1, 25, 15);
-                    JogoLoteria($numsEscolhidos, $numsSorteados, 4);
-                    sort($numsEscolhidos);
-                    print "Os números escolhidos são: " . implode(", ", $numsEscolhidos) . "\n";
-                    print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
-                    $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 4);
-                    print "Seu prêmio é: " . $premio . "\n";
+                $numsEscolhidos = sortearNumeros(1, 25, $quantidadeNumeros);
+                $numsSorteados = sortearNumeros(1, 25, 15);
+                JogoLoteria($numsEscolhidos, $numsSorteados, 4);
+                sort($numsEscolhidos);
+                print "Os números escolhidos são: " . implode(", ", $numsEscolhidos) . "\n";
+                print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
+                $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 4);
+                print "Seu prêmio é: " . $premio . "\n";
             }
             else if ($opcaoDeAposta != 1 && $opcaoDeAposta != 2) 
             {
@@ -246,7 +250,7 @@
 
     function JogoLoteria($numsEscolhidos, $numsSorteados, $jogoEscolhido) 
     {
-        $premio = "Nenhum prêmio :(";
+        $premio = "Nenhum prêmio :("
 
         //Deixa os numeros bonitinhos
         sort($numsEscolhidos);
