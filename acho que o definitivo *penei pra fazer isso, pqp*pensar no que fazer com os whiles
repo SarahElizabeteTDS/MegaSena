@@ -250,7 +250,7 @@
 
     function JogoLoteria($numsEscolhidos, $numsSorteados, $jogoEscolhido) 
     {
-        $premio = "Nenhum prêmio :("
+        $premio = "Nenhum prêmio :(";
 
         //Deixa os numeros bonitinhos
         sort($numsEscolhidos);
