@@ -34,9 +34,9 @@
                 $entradaUsuarioEscolha = readline("Informe os números escolhidos(separados por vírgula): \n");
                 $numsEscolhidos = explode(",", $entradaUsuarioEscolha);
                 $numsEscolhidosQuantidade = count($numsEscolhidos);
-                while ($numsEscolhidosQuantidade < 6  || $numsEscolhidosQuantidade > 20 ||!in_array($numsEscolhidos, $numsSorteados)|| $numsEscolhidos > 60 || $numsEscolhidos < 1) 
+                while ($numsEscolhidosQuantidade < 6  || $numsEscolhidosQuantidade > 20 || repeteArray($numsEscolhidos) || $numsEscolhidos > 60 || $numsEscolhidos < 1) 
                 {
-                    print "Alguma coisa deu errado! Verifique se os números que você informou estão no intervalo de 1 à 60.\nVerifique se o número de dezenas é de 6 à 20\nVerifique se você não digitou nenhum número repetido\n";
+                    print "\nAlguma coisa deu errado! \nVerifique se os números que você informou estão no intervalo de 1 à 60.\nVerifique se o número de dezenas é de 6 à 20\nVerifique se você não digitou nenhum número repetido\n";
                     $entradaUsuarioEscolha = readline("Informe os números escolhidos(separados por vírgula): \n");
                     $numsEscolhidos = explode(",", $entradaUsuarioEscolha);
                     $numsEscolhidosQuantidade = count($numsEscolhidos);
@@ -369,5 +369,34 @@
 
         return $numsSorteados;
     }
-    
+
+    function repeteArray($array)
+    {
+        $i = 0;
+        $j = 0;
+        $numeroElementosArray = count($array);
+        $repeticioes = 1;
+        $novamente = false;
+        for($numeroElementosArray; $numeroElementosArray != 1 ; $numeroElementosArray--)
+        {
+            $repeticoes *=  $numeroElementosArray;
+
+        }
+        for($i ; $i < $repeticoes ; $i++)
+        {
+            for($j ; $j < $repeticoes ; $j++)
+            {
+                if($i != $j)
+                {
+                    $repetiu = $array[$i] == $array[$j];
+                    if($repetiu == true)
+                    {
+                        return $novamente = true;
+                    }
+                }
+            }
+        }
+
+    }
+
 exit;
