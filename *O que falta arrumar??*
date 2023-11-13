@@ -1,4 +1,4 @@
-Colocar o OR (||) nos whiles, para que o usuario nao cometa nenhum erro. (erros possiveis, colocar numeros repetidos *solucao na funcao sortear. E numeros fora do jogo.)
+Colocar o OR (||) nos whiles, para que o usuario nao cometa nenhum erro. (erros possiveis, colocar numeros repetidos *solucao na funcao sortear. E numeros fora do jogo.) <---- muita dor de cabeca, tentar arrumar a parte de numeros fora do jogo, o resto ta certo ja
 Revisar se esta funcionando nos outros jogos, além da mega.
 Fazer a funcao dos precos, passando os jogos por parâmetro.
 Arrumar as falas dos precos para ficarem mais atrativas e bonitinhas.
