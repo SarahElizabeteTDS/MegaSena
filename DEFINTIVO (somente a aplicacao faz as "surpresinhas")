@@ -26,7 +26,6 @@
     if ($jogoEscolhido == 1) 
     {
         $numsApostas = readline("Quantas apostas você deseja fazer?");
-        $numsSorteados = sortearNumeros(1, 60, 6);
         for ($i = $numsApostas; $i > 0; $i--) 
         { 
             $quantidadeNumeros = readline("Quantos numeros você deseja apostar?\n");
@@ -41,6 +40,7 @@
             }
 
             $numsEscolhidos = sortearNumeros(1, 60, $quantidadeNumeros);
+            $numsSorteados = sortearNumeros(1, 60, 6);
             JogoLoteria($numsEscolhidos, $numsSorteados, 1);
             sort($numsEscolhidos);
             $preco = preco(1, $quantidadeNumeros);
@@ -55,7 +55,6 @@
     else if ($jogoEscolhido == 2) 
     {
         $numsApostas = readline("Quantas apostas você deseja fazer?");
-        $numsSorteados = sortearNumeros(1, 80, 5);
         for ($i = $numsApostas; $i > 0; $i--) 
         { 
             $quantidadeNumeros = readline("Quantos numeros você deseja apostar?\n");
@@ -69,6 +68,7 @@
                 }
             }
             $numsEscolhidos = sortearNumeros(1, 80, $quantidadeNumeros);
+            $numsSorteados = sortearNumeros(1, 80, 5);
             JogoLoteria($numsEscolhidos, $numsSorteados, 2);
             sort($numsEscolhidos);
             $preco = preco(2, $quantidadeNumeros);
@@ -83,11 +83,11 @@
     else if ($jogoEscolhido == 3) 
     {
         $numsApostas = readline("Quantas apostas você deseja fazer?");
-        $numsSorteados = sortearNumeros(1, 100, 20);
         for ($i = $numsApostas; $i > 0; $i--) 
         { 
             print "Como na lotomania, você só pode informar 50 números, aqui estão!\n";
             $numsEscolhidos = sortearNumeros(1, 100, 50);
+            $numsSorteados = sortearNumeros(1, 100, 20);
             JogoLoteria($numsEscolhidos, $numsSorteados, 3);
             sort($numsEscolhidos);
             $preco = preco(3, $quantidadeNumeros);
@@ -102,7 +102,6 @@
     else if ($jogoEscolhido == 4) 
     {
         $numsApostas = readline("Quantas apostas você deseja fazer?");
-        $numsSorteados = sortearNumeros(1, 25, 15);
         for ($i = $numsApostas; $i > 0; $i--) 
         { 
             $quantidadeNumeros = readline("Quantos numeros você deseja apostar?\n");
@@ -116,6 +115,7 @@
                 }
             }
             $numsEscolhidos = sortearNumeros(1, 25, $quantidadeNumeros);
+            $numsSorteados = sortearNumeros(1, 25, 15);
             JogoLoteria($numsEscolhidos, $numsSorteados, 4);
             sort($numsEscolhidos);
             $preco = preco(4, $quantidadeNumeros);
