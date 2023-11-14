@@ -251,144 +251,144 @@
         {
             if ($quantidadeNumeros == 6) 
             {
-                $preco = 6,00;
+                $preco = 6;
             }
             elseif ($quantidadeNumeros == 7) 
             {
-                $preco = 35,00;
+                $preco = 35;
             }
             elseif ($quantidadeNumeros == 8) 
             {
-                $preco = 140,00;
+                $preco = 140;
             }
             elseif ($quantidadeNumeros == 9) 
             {
-                $preco = 420,00;
+                $preco = 420;
             }
             elseif ($quantidadeNumeros == 10) 
             {
-                $preco = 1.050,00;
+                $preco = 1.050;
             }
             elseif ($quantidadeNumeros == 11) 
             {
-                $preco = 2.310,00;
+                $preco = 2.310;
             }
             elseif ($quantidadeNumeros == 12) 
             {
-                $preco = 4.620,00;
+                $preco = 4.620;
             }
             elseif ($quantidadeNumeros == 13) 
             {
-                $preco = 8.580,00;
+                $preco = 8.580;
             }
             elseif ($quantidadeNumeros == 14) 
             {
-                $preco = 15.015,00;
+                $preco = 15.015;
             }
             elseif ($quantidadeNumeros == 15) 
             {
-                $preco = 25.025,00;
+                $preco = 25.025;
             }
             elseif ($quantidadeNumeros == 16) 
             {
-                $preco = 40.040,00;
+                $preco = 40.040;
             }
             elseif ($quantidadeNumeros == 17) 
             {
-                $preco = 61.880,00;
+                $preco = 61.880;
             }
             elseif ($quantidadeNumeros == 18) 
             {
-                $preco = 92.820,00;
+                $preco = 92.820;
             }
             elseif ($quantidadeNumeros == 19) 
             {
-                $preco = 135.660,00;
+                $preco = 135.660;
             }
             elseif ($quantidadeNumeros == 20) 
             {
-                $preco = 193.800,00;
+                $preco = 193.800;
             }
         }
         elseif ($jogoEscolhido == 2) 
         {
             if ($quantidadeNumeros == 5) 
             {
-                $preco = 2,50;
+                $preco = 2.50;
             }
             elseif ($quantidadeNumeros == 6) 
             {
-                $preco = 15,00;
+                $preco = 15;
             }
             elseif ($quantidadeNumeros == 7) 
             {
-                $preco = 52,50;
+                $preco = 52.50;
             }
             elseif ($quantidadeNumeros == 8) 
             {
-                $preco = 140,00;
+                $preco = 140;
             }
             elseif ($quantidadeNumeros == 9) 
             {
-                $preco = 315,00;
+                $preco = 315;
             }
             elseif ($quantidadeNumeros == 10) 
             {
-                $preco = 630,00;
+                $preco = 630;
             }
             elseif ($quantidadeNumeros == 11) 
             {
-                $preco = 1.155,00;
+                $preco = 1.155;
             }
             elseif ($quantidadeNumeros == 12) 
             {
-                $preco = 1.980,00;
+                $preco = 1.980;
             }
             elseif ($quantidadeNumeros == 13) 
             {
-                $preco = 3.217,50;
+                $preco = 3.217;
             }
             elseif ($quantidadeNumeros == 14) 
             {
-                $preco = 5.005,00;
+                $preco = 5.005;
             }
             elseif ($quantidadeNumeros == 15) 
             {
-                $preco = 7.507,50;
+                $preco = 7.507;
             }
         }
         elseif ($jogoEscolhido == 3) 
         {
             if ($quantidadeNumeros == 50) 
             {
-                $preco = 3,00;
+                $preco = 3;
             }
         }
         elseif ($jogoEscolhido == 4) 
         {
             if ($quantidadeNumeros == 15) 
             {
-                $preco = 3,00;
+                $preco = 3;
             }
             elseif ($quantidadeNumeros == 16) 
             {
-                $preco = 48,00;
+                $preco = 48;
             }
             elseif ($quantidadeNumeros == 17) 
             {
-                $preco = 408,00;
+                $preco = 408;
             }
             elseif ($quantidadeNumeros == 18) 
             {
-                $preco = 2.448,00;
+                $preco = 2.448;
             }
             elseif ($quantidadeNumeros == 19) 
             {
-                $preco = 11.628,00;
+                $preco = 11.628;
             }
             elseif ($quantidadeNumeros == 20) 
             {
-                $preco = 46.512,00;
+                $preco = 46.512;
             }
         }
 
