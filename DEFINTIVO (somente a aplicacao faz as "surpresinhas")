@@ -31,7 +31,6 @@
             $quantidadeNumeros = readline("Quantos numeros você deseja apostar?\n");
             if ($quantidadeNumeros < 6 || $quantidadeNumeros > 20) 
             {
-                print "Número incorreto de dezenas! Informe novamente, você deve escolher entre 6 e 20 no jogo da Mega!\n";
                 while ($quantidadeNumeros < 6  || $quantidadeNumeros > 20 ) 
                 {
                     print "Número incorreto de dezenas! Informe novamente, você deve escolher entre 6 e 20 no jogo da Mega!\n";
@@ -60,7 +59,6 @@
             $quantidadeNumeros = readline("Quantos numeros você deseja apostar?\n");
             if ($quantidadeNumeros < 5 || $quantidadeNumeros > 15) 
             {
-                print "Número incorreto de dezenas! Informe novamente, você deve escolher entre 6 e 20 no jogo da Mega!\n";
                 while ($quantidadeNumeros < 5  || $quantidadeNumeros > 15) 
                 {
                     print "Número incorreto de dezenas! Informe novamente, você deve escolher entre 5 e 15 no jogo da Quina!\n";
@@ -107,7 +105,6 @@
             $quantidadeNumeros = readline("Quantos numeros você deseja apostar?\n");
             if ($quantidadeNumeros < 15 || $quantidadeNumeros > 20) 
             {
-                print "Número incorreto de dezenas! Informe novamente, você deve escolher entre 6 e 20 no jogo da Mega!\n";
                 while ($quantidadeNumeros < 15  || $quantidadeNumeros > 20) 
                 {
                     print "Número incorreto de dezenas! Informe novamente, você deve escolher entre 15 e 20 no jogo da Lotofácil!\n";
