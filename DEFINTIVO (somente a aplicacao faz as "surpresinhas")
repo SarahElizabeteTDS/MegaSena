@@ -49,6 +49,7 @@
             print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
             $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 1);
             print "Seu prêmio é: " . $premio . "\n";
+            sleep(2); 
         } 
     }   
     else if ($jogoEscolhido == 2) 
@@ -75,7 +76,8 @@
             print "Os números escolhidos são: " . implode(", ", $numsEscolhidos) . "\n";
             print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
             $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 2);
-            print "Seu prêmio é: " . $premio . "\n";   
+            print "Seu prêmio é: " . $premio . "\n";  
+            sleep(2);
         } 
     }   
     else if ($jogoEscolhido == 3) 
@@ -93,7 +95,8 @@
             print "Os números escolhidos são: " . implode(", ", $numsEscolhidos) . "\n";
             print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
             $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 3);
-            print "Seu prêmio é: " . $premio . "\n";      
+            print "Seu prêmio é: " . $premio . "\n";
+            sleep(2);       
         }   
     }
     else if ($jogoEscolhido == 4) 
@@ -121,7 +124,7 @@
             print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
             $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 4);
             print "Seu prêmio é: " . $premio . "\n";
-            
+            sleep(2); 
         } 
     }   
 
