@@ -35,7 +35,8 @@
                 $numsSorteados = sortearNumeros(1,60,6);
                 JogoLoteria($numsEscolhidos, $numsSorteados, 1);
                 sort($numsEscolhidos);
-                preco(1,$numsEscolhidos);
+                $quantidadeNumeros = count($numsEscolhidos);
+                $preco = preco(1,$quantidadeNumeros);
                 print "O preço que você pagará pela sua aposta é de R$" . $preco . "\n";
                 print "Os números escolhidos são: ". implode(", ", $numsEscolhidos) . "\n";
                 print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
@@ -55,7 +56,8 @@
                 }
                 $numsEscolhidos = sortearNumeros(1, 60, $quantidadeNumeros);
                 $numsSorteados = sortearNumeros(1, 60, 6);
-                $preco = preco(1,$numsEscolhidos);
+                $quantidadeNumeros = count($numsEscolhidos);
+                $preco = preco(1,$quantidadeNumeros);
                 print "O preço que você pagará pela sua aposta é de R$" . $preco . "\n";
                 JogoLoteria($numsEscolhidos, $numsSorteados, 1);
                 sort($numsEscolhidos);
@@ -86,7 +88,8 @@
                 $numsSorteados = sortearNumeros(1, 80, 5);
                 JogoLoteria($numsEscolhidos, $numsSorteados, 2);
                 sort($numsEscolhidos);
-                $preco = preco(2,$numsEscolhidos);
+                $quantidadeNumeros = count($numsEscolhidos);
+                $preco = preco(2,$quantidadeNumeros);
                 print "O preço que você pagará pela sua aposta é de R$" . $preco . "\n";
                 print "Os números escolhidos são: $numsEscolhidos\n";
                 print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
@@ -109,7 +112,8 @@
                 $numsSorteados = sortearNumeros(1, 80, 5);
                 JogoLoteria($numsEscolhidos, $numsSorteados, 2);
                 sort($numsEscolhidos);
-                $preco = preco(1,$numsEscolhidos);
+                $quantidadeNumeros = count($numsEscolhidos);
+                $preco = preco(2,$quantidadeNumeros);
                 print "O preço que você pagará pela sua aposta é de R$" . $preco . "\n";
                 print "Os números escolhidos são: " . implode(", ", $numsEscolhidos) . "\n";
                 print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
@@ -138,7 +142,8 @@
                 $numsSorteados = sortearNumeros(1, 100, 20);
                 JogoLoteria($numsEscolhidos, $numsSorteados, 3);
                 sort($numsEscolhidos);
-                $preco = preco(1,$numsEscolhidos);
+                $quantidadeNumeros = count($numsEscolhidos);
+                $preco = preco(3,$quantidadeNumeros);
                 print "O preço que você pagará pela sua aposta é de R$" . $preco . "\n";
                 print "Os números escolhidos são: $numsEscolhidos\n";
                 print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
@@ -151,7 +156,8 @@
                     $numsSorteados = sortearNumeros(1, 100, 20);
                     JogoLoteria($numsEscolhidos, $numsSorteados, 3);
                     sort($numsEscolhidos);
-                    $preco = preco(1,$numsEscolhidos);
+                    $quantidadeNumeros = count($numsEscolhidos);
+                    $preco = preco(3,$quantidadeNumeros);
                     print "O preço que você pagará pela sua aposta é de R$" . $preco . "\n";
                     print "Os números escolhidos são: " . implode(", ", $numsEscolhidos) . "\n";
                     print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
@@ -180,7 +186,8 @@
                 $numsSorteados = sortearNumeros(1, 25, 15);
                 JogoLoteria($numsEscolhidos, $numsSorteados, 4);
                 sort($numsEscolhidos);
-                $preco = preco(4,$numsEscolhidos);
+                $quantidadeNumeros = count($numsEscolhidos);
+                $preco = preco(4,$quantidadeNumeros);
                 print "O preço que você pagará pela sua aposta é de R$" . $preco . "\n";
                 print "Os números escolhidos são: $numsEscolhidos\n";
                 print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
@@ -202,7 +209,8 @@
                 $numsSorteados = sortearNumeros(1, 25, 15);
                 JogoLoteria($numsEscolhidos, $numsSorteados, 4);
                 sort($numsEscolhidos);
-                $preco = preco(4,$numsEscolhidos);
+                $quantidadeNumeros = count($numsEscolhidos);
+                $preco = preco(4,$quantidadeNumeros);
                 print "O preço que você pagará pela sua aposta é de R$" . $preco . "\n";
                 print "Os números escolhidos são: " . implode(", ", $numsEscolhidos) . "\n";
                 print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
