@@ -84,6 +84,7 @@
         for ($i = $numsApostas; $i > 0; $i--) 
         { 
             print "Como na lotomania, você só pode informar 50 números, aqui estão!\n";
+            $quantidadeNumeros = 50;
             $numsEscolhidos = sortearNumeros(1, 100, 50);
             $numsSorteados = sortearNumeros(1, 100, 20);
             JogoLoteria($numsEscolhidos, $numsSorteados, 3);
