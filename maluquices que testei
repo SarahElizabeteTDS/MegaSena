@@ -18,8 +18,9 @@
 
     $numsApostas = 0;
     $numsEscolhidos = 0; //variaveis que estão dentro da funcao
-    $numsSorteados = 0;
+    $numsSorteados = [];
     $premio = "banana";
+    $preco = 0;
 
     $jogoEscolhido = readline("Escolha o jogo que você gostaria de jogar!\n1-Mega-Sena\n2-Quina\n3-Lotomania\n4-Lotofácil\n");
     if ($jogoEscolhido == 1) 
@@ -30,19 +31,12 @@
             $opcaoDeAposta = readline("Você deseja informar os números, ou que o programa os gere para você?\n1-Quero informar eu mesmo\n2-Surpresinha!\n");
             if ($opcaoDeAposta == 1) 
             {
-                $numsSorteados = sortearNumeros(1, 60, 6);
-                $entradaUsuarioEscolha = readline("Informe os números escolhidos(separados por vírgula): \n");
-                $numsEscolhidos = explode(",", $entradaUsuarioEscolha);
-                $numsEscolhidosQuantidade = count($numsEscolhidos);
-                while ($numsEscolhidosQuantidade < 6  || $numsEscolhidosQuantidade > 20 || repeteArray($numsEscolhidos) || $numsEscolhidos > 60 || $numsEscolhidos < 1) 
-                {
-                    print "\nAlguma coisa deu errado! \nVerifique se os números que você informou estão no intervalo de 1 à 60.\nVerifique se o número de dezenas é de 6 à 20\nVerifique se você não digitou nenhum número repetido\n";
-                    $entradaUsuarioEscolha = readline("Informe os números escolhidos(separados por vírgula): \n");
-                    $numsEscolhidos = explode(",", $entradaUsuarioEscolha);
-                    $numsEscolhidosQuantidade = count($numsEscolhidos);
-                }
+                $numsEscolhidos = obterNumerosEscolhidos(1);
+                $numsSorteados = sortearNumeros(1,60,6);
                 JogoLoteria($numsEscolhidos, $numsSorteados, 1);
                 sort($numsEscolhidos);
+                $preco = preco(1,$numsEscolhidos);
+                print "O preço que você pagará pela sua aposta é de :" . $preco . "\n";
                 print "Os números escolhidos são: ". implode(", ", $numsEscolhidos) . "\n";
                 print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
                 $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 1);
@@ -56,11 +50,13 @@
                     print "Número incorreto de dezenas! Informe novamente, você deve escolher entre 6 e 20 no jogo da Mega!\n";
                     while ($quantidadeNumeros < 6  || $quantidadeNumeros > 20 ) 
                     {
-                        $quantidadeNumeros = readline("Quantos numeros você deseja apostar?\n");
+                        $quantidadeNumeros = readline("Quantos números você deseja apostar?\n");
                     }
                 }
                 $numsEscolhidos = sortearNumeros(1, 60, $quantidadeNumeros);
                 $numsSorteados = sortearNumeros(1, 60, 6);
+                $preco = preco(1,$numsEscolhidos);
+                print "O preço que você pagará pela sua aposta é de :" . $preco . "\n";
                 JogoLoteria($numsEscolhidos, $numsSorteados, 1);
                 sort($numsEscolhidos);
                 print "Os números escolhidos são: " . implode(", ", $numsEscolhidos) . "\n";
@@ -70,7 +66,7 @@
             }
             else if ($opcaoDeAposta != 1 && $opcaoDeAposta != 2) 
             {
-                print"Opcao invalida.";
+                print"Opcao invalida.\n";
                 while ($opcaoDeAposta != 1 && $opcaoDeAposta != 2) 
                 {
                     $opcaoDeAposta = readline("Você deseja informar os números, ou que o programa os gere para você?\n1-Quero informar eu mesmo\n2-Surpresinha!\n");
@@ -86,22 +82,12 @@
             $opcaoDeAposta = readline("Você deseja informar os números, ou que o programa os gere para você?\n1-Quero informar eu mesmo\n2-Surpresinha!\n");
             if ($opcaoDeAposta == 1) 
             {
-                $entradaUsuarioEscolha = readline("Informe os números escolhidos(separados por vírgula): \n");
-                $numsEscolhidos = explode(",", $entradaUsuarioEscolha);
-                $numsEscolhidosQuantidade = count($numsEscolhidos);
-                if ($numsEscolhidosQuantidade < 5  || $numsEscolhidosQuantidade > 15) 
-                {
-                    while ($numsEscolhidosQuantidade < 5  || $numsEscolhidosQuantidade > 15 ) 
-                    {
-                        print "Número incorreto de dezenas! Informe novamente, você deve escolher entre 5 e 15 no jogo da Quina!\n";
-                        $entradaUsuarioEscolha = readline("Informe os números escolhidos(separados por vírgula): \n");
-                        $numsEscolhidos = explode(",", $entradaUsuarioEscolha);
-                        $numsEscolhidosQuantidade = count($numsEscolhidos);
-                    }
-                }
+                $numsEscolhidos = obterNumerosEscolhidos(2);
                 $numsSorteados = sortearNumeros(1, 80, 5);
                 JogoLoteria($numsEscolhidos, $numsSorteados, 2);
                 sort($numsEscolhidos);
+                $preco = preco(2,$numsEscolhidos);
+                print "O preço que você pagará pela sua aposta é de :" . $preco . "\n";
                 print "Os números escolhidos são: $numsEscolhidos\n";
                 print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
                 $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 2);
@@ -123,6 +109,8 @@
                 $numsSorteados = sortearNumeros(1, 80, 5);
                 JogoLoteria($numsEscolhidos, $numsSorteados, 2);
                 sort($numsEscolhidos);
+                $preco = preco(1,$numsEscolhidos);
+                print "O preço que você pagará pela sua aposta é de :" . $preco . "\n";
                 print "Os números escolhidos são: " . implode(", ", $numsEscolhidos) . "\n";
                 print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
                 $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 2);
@@ -146,22 +134,12 @@
             $opcaoDeAposta = readline("Você deseja informar os números, ou que o programa os gere para você?\n1-Quero informar eu mesmo\n2-Surpresinha!\n");
             if ($opcaoDeAposta == 1) 
             {
-                $entradaUsuarioEscolha = readline("Informe os números escolhidos(separados por vírgula): \n");
-                $numsEscolhidos = explode(",", $entradaUsuarioEscolha);
-                $numsEscolhidosQuantidade = count($numsEscolhidos);
-                if ($numsEscolhidosQuantidade != 50) 
-                {
-                    while ($numsEscolhidosQuantidade != 50) 
-                    {
-                        print "Número incorreto de dezenas! Informe novamente, você deve escolher 50 números na Lotomania\n";
-                        $entradaUsuarioEscolha = readline("Informe os números escolhidos(separados por vírgula): \n");
-                        $numsEscolhidos = explode(",", $entradaUsuarioEscolha);
-                        $numsEscolhidosQuantidade = count($numsEscolhidos);
-                    }
-                }
+                $numsEscolhidos = obterNumerosEscolhidos(3);
                 $numsSorteados = sortearNumeros(1, 100, 20);
                 JogoLoteria($numsEscolhidos, $numsSorteados, 3);
                 sort($numsEscolhidos);
+                $preco = preco(1,$numsEscolhidos);
+                print "O preço que você pagará pela sua aposta é de :" . $preco . "\n";
                 print "Os números escolhidos são: $numsEscolhidos\n";
                 print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
                 $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 3);
@@ -173,6 +151,8 @@
                     $numsSorteados = sortearNumeros(1, 100, 20);
                     JogoLoteria($numsEscolhidos, $numsSorteados, 3);
                     sort($numsEscolhidos);
+                    $preco = preco(1,$numsEscolhidos);
+                    print "O preço que você pagará pela sua aposta é de :" . $preco . "\n";
                     print "Os números escolhidos são: " . implode(", ", $numsEscolhidos) . "\n";
                     print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
                     $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 3);
@@ -196,22 +176,12 @@
             $opcaoDeAposta = readline("Você deseja informar os números, ou que o programa os gere para você?\n1-Quero informar eu mesmo\n2-Surpresinha!\n");
             if ($opcaoDeAposta == 1) 
             {
-                $entradaUsuarioEscolha = readline("Informe os números escolhidos(separados por vírgula): \n");
-                $numsEscolhidos = explode(",", $entradaUsuarioEscolha);
-                $numsEscolhidosQuantidade = count($numsEscolhidos);
-                if ($numsEscolhidosQuantidade < 15  || $numsEscolhidosQuantidade > 20) 
-                {
-                    while ($numsEscolhidosQuantidade < 15  || $numsEscolhidosQuantidade > 20 ) 
-                    {
-                        print "Número incorreto de dezenas! Informe novamente, você deve escolher entre 15 e 20 no jogo da Lotofácil!\n";
-                        $entradaUsuarioEscolha = readline("Informe os números escolhidos(separados por vírgula): \n");
-                        $numsEscolhidos = explode(",", $entradaUsuarioEscolha);
-                        $numsEscolhidosQuantidade = count($numsEscolhidos);
-                    }
-                }
+                $numsEscolhidos = obterNumerosEscolhidos(4);
                 $numsSorteados = sortearNumeros(1, 25, 15);
                 JogoLoteria($numsEscolhidos, $numsSorteados, 4);
                 sort($numsEscolhidos);
+                $preco = preco(1,$numsEscolhidos);
+                print "O preço que você pagará pela sua aposta é de :" . $preco . "\n";
                 print "Os números escolhidos são: $numsEscolhidos\n";
                 print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
                 $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 4);
@@ -232,6 +202,8 @@
                 $numsSorteados = sortearNumeros(1, 25, 15);
                 JogoLoteria($numsEscolhidos, $numsSorteados, 4);
                 sort($numsEscolhidos);
+                $preco = preco(1,$numsEscolhidos);
+                print "O preço que você pagará pela sua aposta é de :" . $preco . "\n";
                 print "Os números escolhidos são: " . implode(", ", $numsEscolhidos) . "\n";
                 print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
                 $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 4);
@@ -370,33 +342,248 @@
         return $numsSorteados;
     }
 
-    function repeteArray($array)
+    function obterNumerosEscolhidos($jogoEscolhido)
     {
-        $i = 0;
-        $j = 0;
-        $numeroElementosArray = count($array);
-        $repeticioes = 1;
-        $novamente = false;
-        for($numeroElementosArray; $numeroElementosArray != 1 ; $numeroElementosArray--)
-        {
-            $repeticoes *=  $numeroElementosArray;
+        $minDezenas = obterNumeroMinimo($jogoEscolhido);
+        $maxDezenas = obterNumeroMaximo($jogoEscolhido);
+        $numMinimoJogo = 0;
+        $numMaximoJogo = 0;
 
-        }
-        for($i ; $i < $repeticoes ; $i++)
+        if ($jogoEscolhido == 1)   
         {
-            for($j ; $j < $repeticoes ; $j++)
+            $numMinimoJogo = 1;
+            $numMaximoJogo = 60;
+        } elseif ($jogoEscolhido == 2) 
+        {
+            $numMinimoJogo = 1;
+            $numMaximoJogo = 80;
+        } elseif ($jogoEscolhido == 3) 
+        {
+            $numMinimoJogo = 1;
+            $numMaximoJogo = 100;
+        } elseif ($jogoEscolhido == 4) 
+        {
+            $numMinimoJogo = 1;
+            $numMaximoJogo = 25;
+        }
+
+        do 
+        {
+            $entradaUsuarioEscolha = readline("Informe os números escolhidos(separados por vírgula): \n");
+            $numsEscolhidos = explode(",", $entradaUsuarioEscolha);
+            $numsEscolhidos = array_map('intval', $numsEscolhidos);
+            $numsEscolhidos = array_unique($numsEscolhidos);
+            $numsEscolhidos = array_filter($numsEscolhidos, function ($num) use ($numMinimoJogo, $numMaximoJogo) 
             {
-                if($i != $j)
-                {
-                    $repetiu = $array[$i] == $array[$j];
-                    if($repetiu == true)
-                    {
-                        return $novamente = true;
-                    }
-                }
+                return $num >= $numMinimoJogo && $num <= $numMaximoJogo;
+            });
+            $numsEscolhidosQuantidade = count($numsEscolhidos);
+
+            // Verifica se a quantidade de números está correta
+            if ($numsEscolhidosQuantidade < $minDezenas || $numsEscolhidosQuantidade > $maxDezenas) 
+            {
+                print "\nNúmero incorreto de dezenas! Informe novamente, você deve escolher entre $minDezenas e $maxDezenas no jogo escolhido!\n";
+                continue;
+            }
+
+            // Verifica se não há números repetidos
+            if (count(array_intersect_assoc($numsEscolhidos, array_unique($numsEscolhidos))) !== $numsEscolhidosQuantidade) 
+            {
+                print "\nNúmeros repetidos! Informe novamente sem repetições.\n";
+                continue;
+            }
+
+            // Se chegou até aqui, os números estão certos
+            break;
+        } 
+        while (true);
+
+        return $numsEscolhidos;
+}
+
+    function obterNumeroMaximo($jogoEscolhido)
+    {
+        switch ($jogoEscolhido) 
+        {
+            case 1:
+                return NUMEROMAXMEGA;
+            case 2:
+                return NUMEROMAXQUINA;
+            case 3:
+                return NUMEROMAXLOTOMANIA;
+            case 4:
+                return NUMEROMAXLOTOFACIL;
+            default:
+                return 0;
+        }
+    }
+
+    function obterNumeroMinimo($jogoEscolhido)
+    {
+        switch ($jogoEscolhido) 
+        {
+            case 1:
+                return NUMEROMINMEGA;
+            case 2:
+                return NUMEROMINQUINA;
+            case 3:
+                return NUMEROMINLOTOMANIA;
+            case 4:
+                return NUMEROMINLOTOFACIL;
+            default:
+                return 0;
+        }
+    }
+
+    function preco ($jogoEscolhido, $quantidadeNumeros)
+    {
+
+        if ($jogoEscolhido == 1) 
+        {
+            if ($quantidadeNumeros == 6) 
+            {
+                $preco = "6,00";
+            }
+            elseif ($quantidadeNumeros == 7) 
+            {
+                $preco = "35,00";
+            }
+            elseif ($quantidadeNumeros == 8) 
+            {
+                $preco = "140,00";
+            }
+            elseif ($quantidadeNumeros == 9) 
+            {
+                $preco = "420,00";
+            }
+            elseif ($quantidadeNumeros == 10) 
+            {
+                $preco = "1.050,00";
+            }
+            elseif ($quantidadeNumeros == 11) 
+            {
+                $preco = "2.310,00";
+            }
+            elseif ($quantidadeNumeros == 12) 
+            {
+                $preco = "4.620,00";
+            }
+            elseif ($quantidadeNumeros == 13) 
+            {
+                $preco = "8.580,00";
+            }
+            elseif ($quantidadeNumeros == 14) 
+            {
+                $preco = "15.015,00";
+            }
+            elseif ($quantidadeNumeros == 15) 
+            {
+                $preco = "25.025,00";
+            }
+            elseif ($quantidadeNumeros == 16) 
+            {
+                $preco = "40.040,00";
+            }
+            elseif ($quantidadeNumeros == 17) 
+            {
+                $preco = "61.880,00";
+            }
+            elseif ($quantidadeNumeros == 18) 
+            {
+                $preco = "92.820,00";
+            }
+            elseif ($quantidadeNumeros == 19) 
+            {
+                $preco = "135.660,00";
+            }
+            elseif ($quantidadeNumeros == 20) 
+            {
+                $preco = "193.800,00";
+            }
+        }
+        elseif ($jogoEscolhido == 2) 
+        {
+            if ($quantidadeNumeros == 5) 
+            {
+                $preco = "2,50";
+            }
+            elseif ($quantidadeNumeros == 6) 
+            {
+                $preco = "15,00";
+            }
+            elseif ($quantidadeNumeros == 7) 
+            {
+                $preco = "52,50";
+            }
+            elseif ($quantidadeNumeros == 8) 
+            {
+                $preco = "140,00";
+            }
+            elseif ($quantidadeNumeros == 9) 
+            {
+                $preco = "315,00";
+            }
+            elseif ($quantidadeNumeros == 10) 
+            {
+                $preco = "630,00";
+            }
+            elseif ($quantidadeNumeros == 11) 
+            {
+                $preco = "1.155,00";
+            }
+            elseif ($quantidadeNumeros == 12) 
+            {
+                $preco = "1.980,00";
+            }
+            elseif ($quantidadeNumeros == 13) 
+            {
+                $preco = "3.217,00";
+            }
+            elseif ($quantidadeNumeros == 14) 
+            {
+                $preco = "5.005,00";
+            }
+            elseif ($quantidadeNumeros == 15) 
+            {
+                $preco = "7.507,00";
+            }
+        }
+        elseif ($jogoEscolhido == 3) 
+        {
+            if ($quantidadeNumeros == 50) 
+            {
+                $preco = "3,00";
+            }
+        }
+        elseif ($jogoEscolhido == 4) 
+        {
+            if ($quantidadeNumeros == 15) 
+            {
+                $preco = "3,00";
+            }
+            elseif ($quantidadeNumeros == 16) 
+            {
+                $preco = "48,00";
+            }
+            elseif ($quantidadeNumeros == 17) 
+            {
+                $preco = "408,00";
+            }
+            elseif ($quantidadeNumeros == 18) 
+            {
+                $preco = "2.448,00";
+            }
+            elseif ($quantidadeNumeros == 19) 
+            {
+                $preco = "11.628,00";
+            }
+            elseif ($quantidadeNumeros == 20) 
+            {
+                $preco = "46.512,00";
             }
         }
 
+        return $preco;
     }
 
 exit;
