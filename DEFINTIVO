@@ -165,17 +165,17 @@
             }
             else if ($opcaoDeAposta == 2)
             {
-                    $numsEscolhidos = sortearNumeros(1, 100, 50);
-                    $numsSorteados = sortearNumeros(1, 100, 20);
-                    JogoLoteria($numsEscolhidos, $numsSorteados, 3);
-                    sort($numsEscolhidos);
-                    $quantidadeNumeros = count($numsEscolhidos);
-                    $preco = preco(3,$quantidadeNumeros);
-                    print "O preço que você pagará pela sua aposta é de R$" . $preco . "\n";
-                    print "Os números escolhidos são: " . implode(", ", $numsEscolhidos) . "\n";
-                    print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
-                    $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 3);
-                    print "Seu prêmio é: " . $premio . "\n";
+                $numsEscolhidos = sortearNumeros(1, 100, 50);
+                $numsSorteados = sortearNumeros(1, 100, 20);
+                JogoLoteria($numsEscolhidos, $numsSorteados, 3);
+                sort($numsEscolhidos);
+                $quantidadeNumeros = count($numsEscolhidos);
+                $preco = preco(3,$quantidadeNumeros);
+                print "O preço que você pagará pela sua aposta é de R$" . $preco . "\n";
+                print "Os números escolhidos são: " . implode(", ", $numsEscolhidos) . "\n";
+                print "Os números premiados são: " . implode(", ", $numsSorteados) . "\n";
+                $premio = JogoLoteria($numsEscolhidos, $numsSorteados, 3);
+                print "Seu prêmio é: " . $premio . "\n";
             }
             else if ($opcaoDeAposta != 1 && $opcaoDeAposta != 2) 
             {
