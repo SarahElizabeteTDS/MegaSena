@@ -273,7 +273,7 @@
         4 => [15 => '3,00', 16 => '48,00', 17 => '408,00', 18 => '2.448,00', 19 => '11.628,00', 20 => '46.512,00',],
     ];
 
-    return $precos[$jogoEscolhido][$quantidadeNumeros] ?? 'Preço não encontrado';
+    return $precos[$jogoEscolhido][$quantidadeNumeros] ?? 'Preço não encontrado'; //quando eu descobri o "??", meu cerebro explodiu, isso aqui deixou o código 1.000.000 de vezes mais bonito
 }
 
 exit;
