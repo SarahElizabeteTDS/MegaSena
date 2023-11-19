@@ -28,7 +28,7 @@
         $numsApostas = readline();
         for ($i = $numsApostas; $i > 0; $i--) 
         {
-        realizarAposta($jogoEscolhido);
+            realizarAposta($jogoEscolhido);
         }
     } 
     else 
