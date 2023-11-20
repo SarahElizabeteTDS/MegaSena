@@ -168,33 +168,15 @@
         sort($numsSorteados);
 
         return $numsSorteados;
-    }
-
+    } 
+    
     function obterNumerosEscolhidos($jogoEscolhido)
-    {
+    {    
         $minDezenas = obterNumeroMinimo($jogoEscolhido);
         $maxDezenas = obterNumeroMaximo($jogoEscolhido);
         $numMinimoJogo = 0;
         $numMaximoJogo = 0;
-
-        if ($jogoEscolhido == 1)   
-        {
-            $numMinimoJogo = 1;
-            $numMaximoJogo = 60;
-        } elseif ($jogoEscolhido == 2) 
-        {
-            $numMinimoJogo = 1;
-            $numMaximoJogo = 80;
-        } elseif ($jogoEscolhido == 3) 
-        {
-            $numMinimoJogo = 1;
-            $numMaximoJogo = 100;
-        } elseif ($jogoEscolhido == 4) 
-        {
-            $numMinimoJogo = 1;
-            $numMaximoJogo = 25;
-        }
-
+        
         do 
         {
             $entradaUsuarioEscolha = readline("Informe os números escolhidos(separados por vírgula): \n");
@@ -206,28 +188,28 @@
                 return $num >= $numMinimoJogo && $num <= $numMaximoJogo;
             });
             $numsEscolhidosQuantidade = count($numsEscolhidos);
-
+        
             // Verifica se a quantidade de números está correta
             if ($numsEscolhidosQuantidade < $minDezenas || $numsEscolhidosQuantidade > $maxDezenas) 
             {
                 print "\nAlguma coisa deu errado!\nVerifique as seguintes opções\nVerifique se você digitou o número correto de dezenas, nesse jogo, você pode digitar entre " . $minDezenas . "e " . $maxDezenas . "\nVerifique também, se sua aplicação não tem números repetidos\n";
                 continue;
             }
-
+        
             // Verifica se não há números repetidos
             if (count(array_intersect_assoc($numsEscolhidos, array_unique($numsEscolhidos))) !== $numsEscolhidosQuantidade) 
             {
                 print "\nAlguma coisa deu errado!\nVerifique as seguintes opções\nVerifique se você digitou o número correto de dezenas, nesse jogo, você pode digitar entre " . $minDezenas . "e " . $maxDezenas . "\nVerifique também, se sua aplicação não tem números repetidos\n";
                 continue;
             }
-
+        
             // Se chegou até aqui, os números estão certinhos, gracas
             break;
         } 
         while (true);
-
+        
         return $numsEscolhidos;
-}
+    }
 
     function obterNumeroMaximo($jogoEscolhido)
     {
